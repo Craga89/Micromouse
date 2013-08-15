@@ -1,0 +1,110 @@
+.container{
+	float: left;
+}
+
+.container h3{
+	margin: 10px 0 5px;
+}
+
+.maze{
+	position: relative;
+	width: 180px;
+	margin-right: 10px;
+
+	border: 2px solid #aaa;
+	background-color: #fafafa;
+}
+
+.maze div{
+	display: inline-block;
+	border: 2px solid transparent;
+	color: #aaa;
+	text-align: center;
+}
+
+.maze .wall-0{ border-top-color: #fff; }
+.maze .wall-1{ border-right-color: #fff; }
+.maze .wall-2{ border-bottom-color: #fff; }
+.maze .wall-3{ border-left-color: #fff; }
+
+.maze .blank{
+	background-color: #ddd;
+}
+
+.maze .center{
+	background-color: red;
+}
+
+.maze .mouse{
+	display: block;
+	position: absolute;
+	width: 30px; height: 30px;
+	margin: 5px;
+	z-index: 100000;
+
+	border-radius: 100px;
+	background: -webkit-linear-gradient(
+		left, #f85032 0%,#f16f5c 24%,#f6290c 25%,
+		#f02f17 74%,#f16f5c 75%,#e73827 100%
+	);
+
+	-webkit-transition: all 0.25s linear;
+	-moz-transition: all 0.25s linear;
+	-ms-transition: all 0.25s linear;
+	-o-transition: all 0.25s linear;
+	transition: all 0.25s linear;
+	opacity: 0.6;
+}
+
+.maze .mouse:before,
+.maze .mouse:after{
+	position: absolute;
+	display: block;
+	position: absolute;
+	top: 3px; left: 3px;
+	width: 5px; height: 5px;
+	content: ' ';
+
+	background: white;
+	border-radius: 10px;
+	z-index: 10;
+	opacity: 0.8;
+}
+
+.maze .mouse:after{ left: auto; right: 3px; }
+
+.maze .mouse.right{
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+.maze .mouse.bottom{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.maze .mouse.left{
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+.clear{
+	padding-top: 20px;
+	clear: both;
+}
+
+.clear button{
+	font-size: 1.5em;
+	margin-right: 40px;
+}
+
+.clear *{
+	vertical-align: middle;
+}

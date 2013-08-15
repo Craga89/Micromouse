@@ -27,7 +27,7 @@
 
 		<label>
 			Speed:
-			<input id="speed" type="range" min="50" max="1000" value="100" />
+			<input id="speed" type="range" min="50" max="1000" value="250" />
 			<span>(100)</span>
 		</label>
 	</div>
@@ -36,6 +36,15 @@
 	<script src="visualizer.js"></script>
 	<script src="solver.js"></script>
 	<script>
+	/*
+	 * Maze definition
+	 *
+	 * Each number represents an individual cells walls, described as a binary mask.
+	 * 		NORTH WALL = 1	EAST WALL = 2	SOUTH WALL = 4	WEST WALL = 8
+	 * 
+	 * For example, a cell with walls to the top, right and left would have a value of
+	 * 		8 + 2 + 1 = 11
+	 */
 	var maze = new Maze([
 		[11,		11,		9,		5,		5,		3,		11,		13,		3],
 		[8,			2,		8,		7,		13,		2,		8,		7,		10],
@@ -46,8 +55,12 @@
 		[9,			4,		2,		10,		11,		13,		4,		6,		10],
 		[10,		9,		6,		12,		4,		1,		5,		7,		10],
 		[14,		14,		13,		5,		5,		4,		5,		5,		6]
-	], 8, 0);
+	], 
 
+	// The starting cell of the mouse
+	8, 0);
+
+	// Setup the solver instance
 	var solver = new Solver(window.maze);
 
 	// Start solving!
